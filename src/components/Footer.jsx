@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href={`mailto:${personal.email}`}
-              className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-full px-4 py-2 hover:border-blue hover:text-blue hover-pop transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-full px-4 py-2 hover-swap transition-colors"
             >
               <Mail size={15} />
               {personal.email}
@@ -24,7 +24,7 @@ export default function Footer() {
               href={personal.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-full px-4 py-2 hover:border-blue hover:text-blue hover-pop transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-full px-4 py-2 hover-swap transition-colors"
             >
               <LinkedinIcon size={15} />
               LinkedIn
@@ -33,7 +33,7 @@ export default function Footer() {
               href={personal.github}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-full px-4 py-2 hover:border-blue hover:text-blue hover-pop transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-full px-4 py-2 hover-swap transition-colors"
             >
               <GithubIcon size={15} />
               GitHub

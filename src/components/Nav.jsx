@@ -44,13 +44,13 @@ export default function Nav({ activeId, theme, toggleTheme }) {
             e.preventDefault();
             handleNavClick("home");
           }}
-          className="font-script text-3xl text-blue leading-none"
+          className="font-display font-extrabold text-2xl text-navy dark:text-white hover:text-blue hover-pop transition-colors leading-none"
           aria-label="Home"
         >
           Va
         </a>
 
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-1">
           {sections.map((s) => (
             <li key={s.id}>
               <a
@@ -59,10 +59,10 @@ export default function Nav({ activeId, theme, toggleTheme }) {
                   e.preventDefault();
                   handleNavClick(s.id);
                 }}
-                className={`text-[15px] font-medium pb-1 border-b-2 transition-all duration-150 hover:-translate-y-0.5 inline-block ${
+                className={`text-[15px] font-medium px-3 py-1.5 rounded-full transition-colors duration-200 inline-block ${
                   activeId === s.id
-                    ? "text-blue border-blue"
-                    : "text-navy dark:text-white border-transparent hover:text-blue"
+                    ? "bg-blue text-white"
+                    : "text-navy dark:text-white hover:bg-blue hover:text-white"
                 }`}
               >
                 {s.label}
@@ -75,7 +75,7 @@ export default function Nav({ activeId, theme, toggleTheme }) {
           <button
             onClick={toggleTheme}
             aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-            className="w-10 h-10 rounded-full border border-line flex items-center justify-center text-navy dark:text-white hover:border-blue hover:text-blue hover-pop transition-colors"
+            className="w-10 h-10 rounded-full border border-line flex items-center justify-center text-navy dark:text-white hover-swap transition-colors"
           >
             {theme === "dark" ? <Moon size={18} /> : <Sun size={18} />}
           </button>
@@ -101,8 +101,8 @@ export default function Nav({ activeId, theme, toggleTheme }) {
                 e.preventDefault();
                 handleNavClick(s.id);
               }}
-              className={`text-base font-medium py-3 border-b border-line ${
-                activeId === s.id ? "text-blue" : "text-navy dark:text-white"
+              className={`text-base font-medium py-3 px-3 rounded-lg border-b border-line transition-colors duration-200 ${
+                activeId === s.id ? "bg-blue text-white" : "text-navy dark:text-white hover:bg-blue hover:text-white"
               }`}
             >
               {s.label}

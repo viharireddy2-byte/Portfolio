@@ -1,12 +1,11 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
   --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-script: 'Pacifico', cursive;
 
   --color-navy: #16204a;
   --color-blue: #3454d1;
@@ -52,10 +51,6 @@
     font-family: var(--font-display);
   }
 
-  .font-script {
-    font-family: var(--font-script);
-  }
-
   .card-surface {
     background-color: var(--color-card);
     border: 1px solid var(--color-line);
@@ -81,6 +76,20 @@
 
   .hover-pop:hover {
     transform: translateY(-2px) scale(1.02);
+  }
+
+  /* Full blue swap — the site-wide standard hover treatment for standalone
+     chips, pills, and cards: background and text invert to blue/white with a lift. */
+  .hover-swap {
+    transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .hover-swap:hover {
+    background-color: var(--color-blue);
+    color: white;
+    border-color: var(--color-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px -12px rgba(52, 84, 209, 0.4);
   }
 
   html.dark .card-surface {

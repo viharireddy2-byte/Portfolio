@@ -35,7 +35,7 @@ export default function Projects() {
               className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover-pop ${
                 filter === cat
                   ? "bg-blue text-white"
-                  : "card-surface border border-line text-navy hover:border-blue"
+                  : "card-surface border border-line text-navy hover:bg-blue hover:text-white hover:border-blue"
               }`}
             >
               {cat}

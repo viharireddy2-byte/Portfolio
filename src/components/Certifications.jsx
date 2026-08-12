@@ -13,14 +13,18 @@ export default function Certifications() {
           {certifications.map((cert) => (
             <div
               key={cert.name}
-              className="card-surface rounded-2xl p-6 shadow-sm flex items-start gap-4 hover-lift"
+              className="group card-surface hover:bg-blue hover:border-blue rounded-2xl p-6 shadow-sm flex items-start gap-4 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
             >
-              <span className="w-11 h-11 rounded-xl bg-chip text-blue flex items-center justify-center shrink-0">
+              <span className="w-11 h-11 rounded-xl bg-chip group-hover:bg-white/15 text-blue group-hover:text-white flex items-center justify-center shrink-0 transition-colors duration-200">
                 <Award size={20} />
               </span>
               <div>
-                <h3 className="font-display font-bold text-navy leading-snug">{cert.name}</h3>
-                <p className="text-sm text-slate mt-1">{cert.issuer}</p>
+                <h3 className="font-display font-bold text-navy group-hover:text-white leading-snug transition-colors duration-200">
+                  {cert.name}
+                </h3>
+                <p className="text-sm text-slate group-hover:text-white/85 mt-1 transition-colors duration-200">
+                  {cert.issuer}
+                </p>
               </div>
             </div>
           ))}

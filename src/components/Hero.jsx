@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-14 items-center">
           <div>
-            <span className="inline-flex items-center gap-2 border border-line rounded-full px-5 py-2 text-xs font-semibold tracking-wide text-slate uppercase card-surface">
+            <span className="inline-flex items-center gap-2 border border-line rounded-full px-5 py-2 text-xs font-semibold tracking-wide text-slate uppercase card-surface hover-swap cursor-default">
               {personal.badge}
             </span>
 
@@ -52,7 +52,7 @@ export default function Hero() {
 
           <div className="relative mx-auto w-full max-w-sm">
             <div className="absolute -inset-3 rounded-[2rem] bg-blue/10 rotate-3" aria-hidden="true" />
-            <div className="relative rounded-[2rem] overflow-hidden card-surface shadow-xl -rotate-1">
+            <div className="relative rounded-[2rem] overflow-hidden card-surface shadow-xl -rotate-1 transition-all duration-200 hover:shadow-2xl hover:ring-4 hover:ring-blue/30">
               <img
                 src={`${import.meta.env.BASE_URL}profile.jpg`}
                 alt={`Portrait of ${personal.name}`}
@@ -66,7 +66,7 @@ export default function Hero() {
           {heroSkillChips.map((skill) => (
             <span
               key={skill}
-              className="px-5 py-2.5 rounded-full card-surface border border-line text-sm font-medium text-navy shadow-sm hover-lift cursor-default"
+              className="px-5 py-2.5 rounded-full card-surface border border-line text-sm font-medium text-navy shadow-sm hover-swap cursor-default"
             >
               {skill}
             </span>

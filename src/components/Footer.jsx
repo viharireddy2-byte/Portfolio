@@ -1,4 +1,4 @@
-import { Mail, Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 import { personal } from "../data/profile";
 import { GithubIcon, LinkedinIcon } from "./icons";
 
@@ -19,13 +19,6 @@ export default function Footer() {
             >
               <Mail size={15} />
               {personal.email}
-            </a>
-            <a
-              href={`tel:${personal.phone.replace(/[^\d+]/g, "")}`}
-              className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-full px-4 py-2 hover:border-blue hover:text-blue hover-pop transition-colors"
-            >
-              <Phone size={15} />
-              {personal.phone}
             </a>
             <a
               href={personal.linkedin}

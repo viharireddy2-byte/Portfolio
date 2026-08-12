@@ -32,11 +32,24 @@ export default function Journey() {
         </h2>
 
         <div className="relative">
+          {/* Base track */}
           <div
             ref={lineRef}
             className="absolute left-1/2 -translate-x-1/2 top-2 bottom-2 w-px bg-line hidden md:block"
           />
           <div className="absolute left-4 top-2 bottom-2 w-px bg-line md:hidden" />
+
+          {/* Filled progress line — grows from the top as you scroll, tracking the ball */}
+          <div
+            className="hidden md:block absolute left-1/2 -translate-x-1/2 top-2 w-px bg-navy dark:bg-white transition-[height] duration-150 ease-out"
+            style={{ height: `calc(${progress * 100}% - ${progress > 0 ? "4px" : "0px"})` }}
+            aria-hidden="true"
+          />
+          <div
+            className="md:hidden absolute left-4 top-2 w-px bg-navy dark:bg-white transition-[height] duration-150 ease-out"
+            style={{ height: `calc(${progress * 100}% - ${progress > 0 ? "4px" : "0px"})` }}
+            aria-hidden="true"
+          />
 
           {/* Scroll-tracked marker — moves down the line as you read through the timeline */}
           <div
@@ -44,8 +57,13 @@ export default function Journey() {
             style={{ top: `calc(${progress * 100}% - 8px)` }}
             aria-hidden="true"
           />
+          <div
+            className="md:hidden absolute left-4 -translate-x-1/2 w-4 h-4 rounded-full bg-blue/25 border-2 border-blue z-20 transition-[top] duration-150 ease-out"
+            style={{ top: `calc(${progress * 100}% - 8px)` }}
+            aria-hidden="true"
+          />
 
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-4 md:gap-5">
             {journey.map((item, i) => {
               const isLeft = i % 2 === 0;
               return (
@@ -101,6 +119,17 @@ function JourneyCard({ item }) {
         <p className={`text-sm mt-3 leading-relaxed ${highlighted ? "text-white/85" : "text-slate"}`}>
           {item.description}
         </p>
+      )}
+
+      {item.coursework && (
+        <div className="mt-3">
+          <p className={`text-sm font-semibold ${highlighted ? "text-white" : "text-navy"}`}>
+            Relevant Coursework:
+          </p>
+          <p className={`text-sm mt-1 leading-relaxed ${highlighted ? "text-white/85" : "text-slate"}`}>
+            {item.coursework.join(", ")}
+          </p>
+        </div>
       )}
     </div>
   );

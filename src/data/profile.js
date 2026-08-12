@@ -12,7 +12,6 @@ export const personal = {
   eduLine: "MS in Information Technology, Belhaven University (Graduating Apr 2026)",
   location: "Dallas, TX",
   relocation: "Open to relocation",
-  phone: "(940) 290-3394",
   email: "aleti.viharireddy@gmail.com",
   linkedin: "https://www.linkedin.com/in/viharireddy2/",
   github: "https://github.com/viharireddy2-byte",
@@ -44,8 +43,18 @@ export const journey = [
     duration: "In progress",
     title: "Master of Science in Information Technology",
     org: "Belhaven University — Mississippi",
-    description:
-      "Graduate coursework in information systems and data technologies, building on a professional background in data-driven consulting and analytics.",
+    coursework: [
+      "Database Management Systems",
+      "Data Structures & Algorithms",
+      "Operating Systems",
+      "Computer Networks",
+      "Object-Oriented Programming",
+      "Software Engineering",
+      "Distributed Systems",
+      "Data Mining",
+      "Artificial Intelligence",
+      "Web Technologies",
+    ],
   },
   {
     id: "executive-consultant",
@@ -56,7 +65,7 @@ export const journey = [
     title: "Executive Consultant",
     org: "IT World Web — Bangalore, India",
     description:
-      "Analyzed 10K+ operational records across 5 business functions to identify process bottlenecks, map current-state workflows, and recommend changes that improved operational efficiency by 40%. Established and standardized 10+ enterprise KPIs, improving reporting accuracy and strategic planning.",
+      "Analyzed 10K+ operational records across 5 business functions to map bottlenecks and improve efficiency by 40%. Standardized 10+ enterprise KPIs, improving reporting accuracy and strategic planning.",
   },
   {
     id: "associate-consultant",
@@ -67,7 +76,7 @@ export const journey = [
     title: "Associate Consultant",
     org: "Careernet Technologies — Bangalore, India",
     description:
-      "Built executive dashboards by consolidating operational metrics from multiple functions, enabling faster performance tracking and improved leadership visibility. Investigated data and process-level discrepancies through root cause analysis.",
+      "Built executive dashboards consolidating operational metrics for faster performance tracking and leadership visibility. Investigated data discrepancies through root cause analysis to surface actionable insights.",
   },
   {
     id: "be-cs",

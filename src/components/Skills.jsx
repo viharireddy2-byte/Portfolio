@@ -10,18 +10,15 @@ export default function Skills() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((cat) => (
-            <div
-              key={cat.label}
-              className="group card-surface hover:bg-blue hover:border-blue rounded-2xl p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
-            >
-              <h3 className="text-sm font-extrabold uppercase tracking-wide text-blue group-hover:text-white pb-3 mb-4 border-b border-line group-hover:border-white/25 transition-colors duration-200">
+            <div key={cat.label} className="card-surface rounded-2xl p-6 shadow-sm hover-lift">
+              <h3 className="text-sm font-extrabold uppercase tracking-wide text-blue pb-3 mb-4 border-b border-line">
                 {cat.label}
               </h3>
               <div className="flex flex-wrap gap-2.5">
                 {cat.skills.map((skill) => (
                   <span
                     key={skill.name}
-                    className="inline-flex items-center gap-2 text-sm font-medium text-navy group-hover:text-white border border-line group-hover:border-white/25 group-hover:bg-white/10 rounded-lg px-3 py-2 transition-colors duration-200"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-lg px-3 py-2 hover-lift cursor-default"
                   >
                     <span aria-hidden="true">{skill.icon}</span>
                     {skill.name}

@@ -37,20 +37,10 @@ export default function Nav({ activeId, theme, toggleTheme }) {
           : "bg-transparent border-transparent"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
-        <a
-          href="#home"
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavClick("home");
-          }}
-          className="font-display font-extrabold text-2xl text-navy dark:text-white hover:text-blue hover-pop transition-colors leading-none"
-          aria-label="Home"
-        >
-          Va
-        </a>
+      <nav className="max-w-7xl mx-auto px-6 md:px-12 h-16 grid grid-cols-[1fr_auto_1fr] items-center">
+        <div aria-hidden="true" />
 
-        <ul className="hidden md:flex items-center gap-1">
+        <ul className="hidden md:flex items-center gap-1 justify-self-center">
           {sections.map((s) => (
             <li key={s.id}>
               <a
@@ -71,7 +61,7 @@ export default function Nav({ activeId, theme, toggleTheme }) {
           ))}
         </ul>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 justify-self-end">
           <button
             onClick={toggleTheme}
             aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}

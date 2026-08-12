@@ -96,66 +96,32 @@ export default function Journey() {
 }
 
 function JourneyCard({ item }) {
-  const highlighted = item.origin;
-
   return (
-    <div
-      className={`group w-full rounded-2xl p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl ${
-        highlighted
-          ? "bg-blue text-white"
-          : "card-surface hover:bg-blue hover:border-blue"
-      }`}
-    >
-      <span
-        className={`inline-block text-xs font-semibold px-3 py-1.5 rounded-lg mb-3 transition-colors duration-200 ${
-          highlighted
-            ? "bg-white/15 text-white"
-            : "bg-chip text-blue group-hover:bg-white/15 group-hover:text-white"
-        }`}
-      >
+    <div className="group w-full rounded-2xl p-6 shadow-sm card-surface hover:bg-blue hover:border-blue transition-all duration-200 hover:-translate-y-1 hover:shadow-xl">
+      <span className="inline-block text-xs font-semibold px-3 py-1.5 rounded-lg mb-3 bg-chip text-blue group-hover:bg-white/15 group-hover:text-white transition-colors duration-200">
         {item.start} – {item.end}
         {item.duration ? ` (${item.duration})` : ""}
       </span>
 
-      <h3
-        className={`font-display font-bold text-xl transition-colors duration-200 ${
-          highlighted ? "text-white" : "text-navy group-hover:text-white"
-        }`}
-      >
+      <h3 className="font-display font-bold text-xl text-navy group-hover:text-white transition-colors duration-200">
         {item.title}
       </h3>
-      <p
-        className={`text-sm mt-1 font-medium transition-colors duration-200 ${
-          highlighted ? "text-white/85" : "text-slate group-hover:text-white/85"
-        }`}
-      >
+      <p className="text-sm mt-1 font-medium text-slate group-hover:text-white/85 transition-colors duration-200">
         {item.org}
       </p>
 
       {item.description && (
-        <p
-          className={`text-sm mt-3 leading-relaxed transition-colors duration-200 ${
-            highlighted ? "text-white/85" : "text-slate group-hover:text-white/85"
-          }`}
-        >
+        <p className="text-sm mt-3 leading-relaxed text-slate group-hover:text-white/85 transition-colors duration-200">
           {item.description}
         </p>
       )}
 
       {item.coursework && (
         <div className="mt-3">
-          <p
-            className={`text-sm font-semibold transition-colors duration-200 ${
-              highlighted ? "text-white" : "text-navy group-hover:text-white"
-            }`}
-          >
+          <p className="text-sm font-semibold text-navy group-hover:text-white transition-colors duration-200">
             Relevant Coursework:
           </p>
-          <p
-            className={`text-sm mt-1 leading-relaxed transition-colors duration-200 ${
-              highlighted ? "text-white/85" : "text-slate group-hover:text-white/85"
-            }`}
-          >
+          <p className="text-sm mt-1 leading-relaxed text-slate group-hover:text-white/85 transition-colors duration-200">
             {item.coursework.join(", ")}
           </p>
         </div>

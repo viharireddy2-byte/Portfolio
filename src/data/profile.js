@@ -32,8 +32,8 @@ export const heroSkillChips = [
 ];
 
 // A single reverse-chronological timeline mixing work experience and education —
-// mirrors the reference site's "Journey" section. The oldest entry (degree)
-// is marked `origin: true` to receive the filled highlight-card treatment.
+// mirrors the reference site's "Journey" section. All entries render identically
+// (white card by default, blue on hover).
 export const journey = [
   {
     id: "ms-it",
@@ -86,7 +86,6 @@ export const journey = [
     duration: "4 Years",
     title: "Bachelor of Engineering in Computer Science",
     org: "JNTUH — Hyderabad, India",
-    origin: true,
   },
 ];
 

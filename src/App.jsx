@@ -1,33 +1,29 @@
 import { useMemo } from "react";
 import Nav from "./components/Nav";
-import LineageRail from "./components/LineageRail";
 import Hero from "./components/Hero";
-import About from "./components/About";
-import Skills from "./components/Skills";
-import Experience from "./components/Experience";
+import Journey from "./components/Journey";
 import Projects from "./components/Projects";
-import Education from "./components/Education";
-import Contact from "./components/Contact";
+import Skills from "./components/Skills";
+import Certifications from "./components/Certifications";
 import Footer from "./components/Footer";
 import { sections } from "./data/profile";
 import { useActiveSection } from "./hooks/useActiveSection";
+import { useTheme } from "./hooks/useTheme";
 
 function App() {
   const sectionIds = useMemo(() => sections.map((s) => s.id), []);
-  const { activeId, passedIds } = useActiveSection(sectionIds);
+  const { activeId } = useActiveSection(sectionIds);
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="min-h-screen">
-      <Nav activeId={activeId} />
-      <LineageRail activeId={activeId} passedIds={passedIds} />
+    <div className="min-h-screen bg-page">
+      <Nav activeId={activeId} theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />
-        <About />
-        <Skills />
-        <Experience />
+        <Journey />
         <Projects />
-        <Education />
-        <Contact />
+        <Skills />
+        <Certifications />
       </main>
       <Footer />
     </div>

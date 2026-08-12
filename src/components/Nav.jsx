@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Download } from "lucide-react";
-import { personal, sections } from "../data/profile";
+import { Menu, Moon, Sun, X } from "lucide-react";
+import { sections } from "../data/profile";
 
-export default function Nav({ activeId }) {
+export default function Nav({ activeId, theme, toggleTheme }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -22,28 +22,35 @@ export default function Nav({ activeId }) {
 
   const handleNavClick = (id) => {
     setOpen(false);
+    if (id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-ink/90 backdrop-blur-md border-b border-line" : "bg-transparent"
+      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 border-b ${
+        scrolled
+          ? "bg-white/90 dark:bg-[#0b1220]/90 backdrop-blur-md border-line"
+          : "bg-transparent border-transparent"
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
         <a
-          href="#top"
+          href="#home"
           onClick={(e) => {
             e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            handleNavClick("home");
           }}
-          className="font-display font-semibold text-paper tracking-tight text-lg"
+          className="font-script text-3xl text-blue leading-none"
+          aria-label="Home"
         >
-          Vihari<span className="text-gold">.</span>
+          Va
         </a>
 
-        <ul className="hidden md:flex items-center gap-1 font-mono text-xs uppercase tracking-wider">
+        <ul className="hidden md:flex items-center gap-8">
           {sections.map((s) => (
             <li key={s.id}>
               <a
@@ -52,10 +59,10 @@ export default function Nav({ activeId }) {
                   e.preventDefault();
                   handleNavClick(s.id);
                 }}
-                className={`px-3 py-2 rounded-full transition-colors ${
+                className={`text-[15px] font-medium pb-1 border-b-2 transition-colors ${
                   activeId === s.id
-                    ? "text-gold bg-gold/10"
-                    : "text-fog hover:text-paper"
+                    ? "text-blue border-blue"
+                    : "text-navy dark:text-white border-transparent hover:text-blue"
                 }`}
               >
                 {s.label}
@@ -64,29 +71,28 @@ export default function Nav({ activeId }) {
           ))}
         </ul>
 
-        <div className="hidden md:block">
-          <a
-            href={personal.resumeFile}
-            download
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider border border-line rounded-full px-4 py-2 text-paper hover:border-gold hover:text-gold transition-colors"
+        <div className="flex items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            className="w-10 h-10 rounded-full border border-line flex items-center justify-center text-navy dark:text-white hover:border-blue hover:text-blue transition-colors"
           >
-            <Download size={14} strokeWidth={2} />
-            Resume
-          </a>
-        </div>
+            {theme === "dark" ? <Moon size={18} /> : <Sun size={18} />}
+          </button>
 
-        <button
-          className="md:hidden text-paper"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((o) => !o)}
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          <button
+            className="md:hidden text-navy dark:text-white"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((o) => !o)}
+          >
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </nav>
 
       {open && (
-        <div className="md:hidden bg-ink border-t border-line px-6 py-6 flex flex-col gap-1">
+        <div className="md:hidden bg-white dark:bg-[#0b1220] border-t border-line px-6 py-6 flex flex-col gap-1">
           {sections.map((s) => (
             <a
               key={s.id}
@@ -95,21 +101,13 @@ export default function Nav({ activeId }) {
                 e.preventDefault();
                 handleNavClick(s.id);
               }}
-              className={`font-mono text-sm uppercase tracking-wider py-3 border-b border-line/60 ${
-                activeId === s.id ? "text-gold" : "text-fog"
+              className={`text-base font-medium py-3 border-b border-line ${
+                activeId === s.id ? "text-blue" : "text-navy dark:text-white"
               }`}
             >
               {s.label}
             </a>
           ))}
-          <a
-            href={personal.resumeFile}
-            download
-            className="mt-4 inline-flex items-center justify-center gap-2 text-xs font-mono uppercase tracking-wider border border-gold rounded-full px-4 py-3 text-gold"
-          >
-            <Download size={14} strokeWidth={2} />
-            Download resume
-          </a>
         </div>
       )}
     </header>

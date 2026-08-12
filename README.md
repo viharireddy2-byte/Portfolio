@@ -1,12 +1,12 @@
 # Vihari Reddy Aleti — Portfolio
 
-A production-quality personal portfolio for a Data Engineer, built with React, Vite, and Tailwind CSS. The visual language is drawn from the medallion (Bronze → Silver → Gold) lakehouse architecture described in the Projects section: the hero renders it as an animated pipeline schematic, and a "lineage rail" tracks reading progress down the page like a pipeline monitoring view.
+A production-quality personal portfolio for a Data Engineer, built with React, Vite, and Tailwind CSS. The design is built to closely match a reference portfolio's structure and visual language: a light/dark-mode toggle, a two-tone name treatment, a unified reverse-chronological "Journey" timeline (work + education combined), pipeline-style project preview cards, and a categorized Technical Skills grid.
 
 ## Tech stack
 
 - **Vite** — fast dev server and production build, zero-config for a static site with no server-side needs
 - **React 19** — component model for a maintainable, reusable UI
-- **Tailwind CSS v4** — utility CSS with design tokens (colors, fonts) defined once in `src/index.css`
+- **Tailwind CSS v4** — utility CSS with design tokens (colors, fonts) defined once in `src/index.css`, including class-based dark mode via `@custom-variant dark`
 - **lucide-react** — icon set (GitHub/LinkedIn use small custom SVGs in `src/components/icons.jsx`, since those brand marks aren't in the current lucide package)
 
 No framework beyond Vite+React is used — a portfolio like this has no server logic, so Next.js or a meta-framework would add build complexity without benefit. It deploys as static files, which is exactly what GitHub Pages serves.
@@ -20,14 +20,15 @@ No framework beyond Vite+React is used — a portfolio like this has no server l
 │   └── resume.pdf         # downloadable resume
 ├── src/
 │   ├── data/
-│   │   ├── profile.js      # personal info, skills, experience, education, certifications
+│   │   ├── profile.js      # personal info, journey (work+education), skills, certifications
 │   │   └── projects.js     # ← add new projects here
 │   ├── components/          # one component per section, reusable pieces
 │   ├── hooks/
-│   │   └── useActiveSection.js  # scroll tracking for nav + lineage rail
+│   │   ├── useActiveSection.js  # scroll tracking for nav underline
+│   │   └── useTheme.js          # light/dark mode, persisted to localStorage
 │   ├── App.jsx
 │   ├── main.jsx
-│   └── index.css            # design tokens (colors, fonts) + Tailwind import
+│   └── index.css            # design tokens (light + dark colors, fonts) + Tailwind import
 ├── index.html                # SEO meta tags
 ├── vite.config.js            # includes GitHub Pages `base` path
 └── .github/workflows/deploy.yml   # auto-deploy on push to main
@@ -39,23 +40,27 @@ Projects are **not** hard-coded into components. To add a project, open `src/dat
 
 ```js
 {
-  id: "my-new-project",       // unique, url-safe
+  id: "my-new-project",
+  number: "03",
+  category: "Data Engineering",   // must match an entry in projectCategories, or add one
   title: "Project Title",
-  tier: "gold",                 // "gold" | "silver" | "bronze" — cosmetic accent color only
-  date: "2026",
-  featured: true,
-  description: "One or two sentences on what it does and why.",
-  tools: ["Python", "Airflow", "Snowflake"],
-  githubUrl: "https://github.com/you/repo",   // omit if none
-  liveUrl: "https://your-demo.com",            // omit if none
-  highlights: [
-    { stat: "50%", label: "short label", detail: "One sentence of detail." },
-    // 2–4 highlights works best visually
-  ],
+  githubUrl: "https://github.com/you/repo",
+  preview: {
+    eyebrow: "SHORT LABEL",
+    headline: "One punchy line about what it does.",
+    bullets: ["Point one", "Point two", "Point three"],
+    cta: "View on GitHub",
+  },
+  technologies: ["Python", "Airflow", "Snowflake"],
+  objective: "A few sentences describing what you built and the impact.",
 }
 ```
 
-The Projects section renders this list automatically — no component changes needed. The same pattern applies to `src/data/profile.js` for updating your summary, skills, experience, education, or certifications.
+The Projects section renders this list automatically — no component changes needed. The same pattern applies to `src/data/profile.js` for updating your summary, journey entries, skill categories, or certifications.
+
+### Adding a new Journey entry
+
+`journey` in `src/data/profile.js` is a single reverse-chronological array mixing work and education — add an object with `start`, `end`, `duration`, `title`, `org`, and optional `description`. Set `origin: true` on the oldest entry to give it the solid highlight-card treatment (matches the reference site's earliest-milestone styling).
 
 ## Local development
 
@@ -129,5 +134,5 @@ Replace `public/resume.pdf` with a new export any time — the download links in
 ## Accessibility & performance notes
 
 - Semantic HTML landmarks (`header`, `nav`, `main`, `section`, `footer`), alt text on the profile photo, visible focus states (`:focus-visible`), and `prefers-reduced-motion` support are all built in.
-- The lineage rail and pipeline animation are decorative (`aria-hidden`) and skip real content for screen readers.
+- The theme toggle button has an accessible label that updates with the current mode, and the chosen theme persists across visits via `localStorage`.
 - Fonts are loaded from Google Fonts with `display=swap`; the JS bundle is small (no heavy chart/animation libraries).

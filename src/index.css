@@ -1,46 +1,48 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Pacifico&display=swap');
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
   --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  --font-script: 'Pacifico', cursive;
 
-  --color-ink: #0b1220;
-  --color-surface: #101a2c;
-  --color-surface-2: #16223a;
-  --color-line: #263a5c;
-  --color-fog: #8a9ab3;
-  --color-paper: #edf1f7;
-  --color-bronze: #c88a4a;
-  --color-silver: #b9c6d9;
-  --color-gold: #eab923;
-  --color-gold-dim: #ab8324;
+  --color-navy: #16204a;
+  --color-blue: #3454d1;
+  --color-blue-dark: #263f9e;
+  --color-slate: #5b6472;
+  --color-line: #e4e7f2;
+  --color-card: #ffffff;
+  --color-page: #f6f7fc;
+  --color-chip: #eef0fa;
 }
 
 @layer base {
-  * {
-    border-color: var(--color-line);
-  }
-
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    background-color: var(--color-ink);
-    color: var(--color-paper);
+    background: linear-gradient(180deg, #ffffff 0%, #eef1fb 55%, #e9edfa 100%);
+    color: var(--color-navy);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.dark body {
+    background: linear-gradient(180deg, #0a0f1e 0%, #0d1428 55%, #0b1220 100%);
+    color: #e7ecf8;
   }
 
   ::selection {
-    background-color: var(--color-gold);
-    color: var(--color-ink);
+    background-color: var(--color-blue);
+    color: white;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-gold);
+    outline: 2px solid var(--color-blue);
     outline-offset: 3px;
   }
 }
@@ -49,19 +51,39 @@
   .font-display {
     font-family: var(--font-display);
   }
-  .font-mono {
-    font-family: var(--font-mono);
+
+  .font-script {
+    font-family: var(--font-script);
   }
 
-  .bg-grid {
-    background-image:
-      linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px);
-    background-size: 44px 44px;
+  .card-surface {
+    background-color: var(--color-card);
+    border: 1px solid var(--color-line);
   }
 
-  .text-glow {
-    text-shadow: 0 0 40px rgba(234, 185, 35, 0.25);
+  html.dark .card-surface {
+    background-color: #121a30;
+    border-color: #232d4a;
+  }
+
+  html.dark .text-navy {
+    color: #eef1fb;
+  }
+
+  html.dark .text-slate {
+    color: #97a1b8;
+  }
+
+  html.dark .border-line {
+    border-color: #232d4a;
+  }
+
+  html.dark .bg-chip {
+    background-color: #182140;
+  }
+
+  html.dark .bg-page {
+    background-color: #0b1220;
   }
 }
 

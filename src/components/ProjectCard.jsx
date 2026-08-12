@@ -1,83 +1,78 @@
-import { CheckCircle2, ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "./icons";
 
-const tierStyles = {
-  gold: { text: "text-gold", border: "border-gold/40", dot: "bg-gold" },
-  silver: { text: "text-silver", border: "border-silver/40", dot: "bg-silver" },
-  bronze: { text: "text-bronze", border: "border-bronze/40", dot: "bg-bronze" },
-};
-
 export default function ProjectCard({ project }) {
-  const tier = tierStyles[project.tier] ?? tierStyles.gold;
-
   return (
-    <article className="border border-line rounded-2xl bg-surface overflow-hidden hover:border-gold/30 transition-colors">
-      <div className="p-6 md:p-8 border-b border-line flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <div className="flex items-center gap-2 mb-2">
-            <span className={`w-2 h-2 rounded-full ${tier.dot}`} />
-            <span className="font-mono text-[10px] uppercase tracking-widest text-fog/70">
-              {project.date}
-            </span>
-            <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-emerald-400/90 ml-2">
-              <CheckCircle2 size={12} />
-              Validated
-            </span>
+    <article className="rounded-2xl overflow-hidden card-surface shadow-sm flex flex-col">
+      <div className="p-6 bg-gradient-to-br from-blue/10 to-blue/5 dark:from-blue/15 dark:to-transparent">
+        <p className="text-[11px] font-bold tracking-widest text-blue mb-2">
+          {project.preview.eyebrow}
+        </p>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <h4 className="font-display font-bold text-xl text-navy max-w-xs">
+            {project.preview.headline}
+          </h4>
+          <div className="card-surface rounded-xl p-4 text-xs max-w-[220px] shadow-sm">
+            <p className="font-semibold text-navy mb-2">What you can do</p>
+            <ul className="space-y-1.5 text-slate">
+              {project.preview.bullets.map((b) => (
+                <li key={b} className="flex gap-1.5">
+                  <span className="text-blue">•</span>
+                  {b}
+                </li>
+              ))}
+            </ul>
           </div>
-          <h3 className="font-display font-semibold text-2xl text-paper">{project.title}</h3>
         </div>
-
-        <div className="flex items-center gap-2 shrink-0">
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider border border-line rounded-full px-3 py-1.5 text-paper hover:border-gold hover:text-gold transition-colors"
-            >
-              <GithubIcon size={13} />
-              Code
-            </a>
-          )}
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider border border-line rounded-full px-3 py-1.5 text-paper hover:border-gold hover:text-gold transition-colors"
-            >
-              <ExternalLink size={13} />
-              Live
-            </a>
-          )}
-        </div>
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-4 inline-flex items-center gap-1.5 bg-blue text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-dark transition-colors"
+          >
+            <GithubIcon size={14} />
+            {project.preview.cta}
+          </a>
+        )}
       </div>
 
-      <div className="p-6 md:p-8">
-        <p className="text-paper/85 leading-relaxed max-w-2xl">{project.description}</p>
+      <div className="p-6 flex-1 flex flex-col">
+        <div className="flex items-center gap-2 mb-4">
+          <span className="font-display font-extrabold text-blue text-sm">{project.number}</span>
+          <span className="text-[11px] font-semibold uppercase tracking-wide bg-chip text-blue px-2.5 py-1 rounded-md">
+            {project.category}
+          </span>
+        </div>
 
-        <div className="mt-5 flex flex-wrap gap-2">
-          {project.tools.map((tool) => (
+        <h3 className="font-display font-bold text-2xl text-navy mb-4">{project.title}</h3>
+
+        <p className="text-[11px] font-bold tracking-widest text-blue mb-2">TECHNOLOGIES USED</p>
+        <div className="flex flex-wrap gap-2 mb-5">
+          {project.technologies.map((t) => (
             <span
-              key={tool}
-              className="text-xs font-mono text-fog border border-line rounded-md px-2.5 py-1"
+              key={t}
+              className="text-xs font-medium text-navy border border-line rounded-md px-2.5 py-1"
             >
-              {tool}
+              {t}
             </span>
           ))}
         </div>
 
-        <div className="mt-8 grid sm:grid-cols-2 gap-5">
-          {project.highlights.map((h, i) => (
-            <div key={i} className={`border-l-2 ${tier.border} pl-4`}>
-              <div className={`font-display font-semibold text-lg ${tier.text}`}>{h.stat}</div>
-              <div className="font-mono text-[10px] uppercase tracking-widest text-fog/70 mt-0.5 mb-1.5">
-                {h.label}
-              </div>
-              <p className="text-sm text-fog leading-relaxed">{h.detail}</p>
-            </div>
-          ))}
-        </div>
+        <p className="text-[11px] font-bold tracking-widest text-blue mb-2">OBJECTIVE &amp; USE CASE</p>
+        <p className="text-sm text-slate leading-relaxed">{project.objective}</p>
+
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-5 inline-flex items-center gap-1 text-blue font-semibold text-sm hover:underline"
+          >
+            View repository
+            <ArrowUpRight size={15} />
+          </a>
+        )}
       </div>
     </article>
   );

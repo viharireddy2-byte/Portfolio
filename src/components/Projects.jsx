@@ -1,19 +1,50 @@
-import { projects } from "../data/projects";
-import SectionHeading from "./SectionHeading";
+import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { projectCategories, projects } from "../data/projects";
+import { personal } from "../data/profile";
 import ProjectCard from "./ProjectCard";
 
 export default function Projects() {
-  return (
-    <section id="projects" className="scroll-mt-24 py-24 md:py-32 border-t border-line bg-surface/40">
-      <div className="max-w-6xl mx-auto px-6 md:px-10">
-        <SectionHeading
-          stage="03 · Build"
-          title="Projects"
-          description="Two end-to-end data platforms — each one takes raw, messy input and gets it to something reliable enough to build on."
-        />
+  const [filter, setFilter] = useState("All");
+  const visible = filter === "All" ? projects : projects.filter((p) => p.category === filter);
 
-        <div className="flex flex-col gap-8">
-          {projects.map((project) => (
+  return (
+    <section id="projects" className="scroll-mt-20 py-24">
+      <div className="max-w-6xl mx-auto px-6 md:px-10">
+        <div className="flex justify-center mb-10">
+          <a
+            href={personal.github}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 border-2 border-blue text-blue font-semibold px-6 py-2.5 rounded-xl hover:bg-blue hover:text-white transition-colors"
+          >
+            See All Projects
+            <ArrowUpRight size={16} />
+          </a>
+        </div>
+
+        <h2 className="font-display font-extrabold text-4xl md:text-5xl text-center text-navy mb-10">
+          Projects
+        </h2>
+
+        <div className="flex justify-center gap-3 mb-12">
+          {projectCategories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-colors ${
+                filter === cat
+                  ? "bg-blue text-white"
+                  : "card-surface border border-line text-navy hover:border-blue"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {visible.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>

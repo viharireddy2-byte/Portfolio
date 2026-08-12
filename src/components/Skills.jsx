@@ -1,35 +1,27 @@
-import { skillGroups } from "../data/profile";
-import SectionHeading from "./SectionHeading";
+import { skillCategories } from "../data/profile";
 
 export default function Skills() {
   return (
-    <section id="skills" className="scroll-mt-24 py-24 md:py-32 border-t border-line bg-surface/40">
+    <section id="skills" className="scroll-mt-20 py-24">
       <div className="max-w-6xl mx-auto px-6 md:px-10">
-        <SectionHeading
-          stage="01 · Stack"
-          title="Skills"
-          description="The tools I reach for to move data from a raw source to something a team can trust and query."
-        />
+        <h2 className="font-display font-extrabold text-4xl md:text-5xl text-center text-navy mb-16">
+          Technical Skills
+        </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {skillGroups.map((group) => (
-            <div
-              key={group.label}
-              className="group relative border border-line rounded-2xl p-6 bg-surface hover:border-gold/40 transition-colors"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="font-display font-semibold text-paper">{group.label}</h3>
-                <span className="font-mono text-[10px] uppercase tracking-widest text-fog/60 border border-line rounded-full px-2 py-0.5">
-                  {group.tag}
-                </span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillCategories.map((cat) => (
+            <div key={cat.label} className="card-surface rounded-2xl p-6 shadow-sm">
+              <h3 className="text-sm font-extrabold uppercase tracking-wide text-blue pb-3 mb-4 border-b border-line">
+                {cat.label}
+              </h3>
+              <div className="flex flex-wrap gap-2.5">
+                {cat.skills.map((skill) => (
                   <span
-                    key={skill}
-                    className="text-xs font-mono text-silver bg-ink/60 border border-line rounded-md px-2.5 py-1.5"
+                    key={skill.name}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-lg px-3 py-2"
                   >
-                    {skill}
+                    <span aria-hidden="true">{skill.icon}</span>
+                    {skill.name}
                   </span>
                 ))}
               </div>

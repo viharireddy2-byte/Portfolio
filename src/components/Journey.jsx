@@ -1,16 +1,49 @@
+import { useEffect, useRef, useState } from "react";
 import { journey } from "../data/profile";
 
 export default function Journey() {
+  const lineRef = useRef(null);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const el = lineRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const viewportCenter = window.innerHeight * 0.5;
+      // 0 when the line's top is at viewport center, 1 when its bottom reaches viewport center.
+      const raw = (viewportCenter - rect.top) / (rect.height || 1);
+      setProgress(Math.min(1, Math.max(0, raw)));
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
   return (
-    <section id="journey" className="scroll-mt-20 py-24">
-      <div className="max-w-5xl mx-auto px-6 md:px-10">
-        <h2 className="font-display font-extrabold text-4xl md:text-5xl text-center text-navy mb-16">
+    <section id="journey" className="scroll-mt-20 py-14 md:py-16">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
+        <h2 className="font-display font-extrabold text-4xl md:text-5xl text-center text-navy mb-10">
           My Tech Journey
         </h2>
 
         <div className="relative">
-          <div className="absolute left-1/2 -translate-x-1/2 top-2 bottom-2 w-px bg-line hidden md:block" />
+          <div
+            ref={lineRef}
+            className="absolute left-1/2 -translate-x-1/2 top-2 bottom-2 w-px bg-line hidden md:block"
+          />
           <div className="absolute left-4 top-2 bottom-2 w-px bg-line md:hidden" />
+
+          {/* Scroll-tracked marker — moves down the line as you read through the timeline */}
+          <div
+            className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-blue/25 border-2 border-blue z-20 transition-[top] duration-150 ease-out"
+            style={{ top: `calc(${progress * 100}% - 8px)` }}
+            aria-hidden="true"
+          />
 
           <div className="flex flex-col gap-10">
             {journey.map((item, i) => {
@@ -44,7 +77,7 @@ function JourneyCard({ item }) {
 
   return (
     <div
-      className={`w-full rounded-2xl p-6 shadow-sm ${
+      className={`w-full rounded-2xl p-6 shadow-sm hover-lift ${
         highlighted ? "bg-blue text-white" : "card-surface"
       }`}
     >

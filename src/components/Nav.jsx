@@ -37,7 +37,7 @@ export default function Nav({ activeId, theme, toggleTheme }) {
           : "bg-transparent border-transparent"
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
         <a
           href="#home"
           onClick={(e) => {
@@ -59,7 +59,7 @@ export default function Nav({ activeId, theme, toggleTheme }) {
                   e.preventDefault();
                   handleNavClick(s.id);
                 }}
-                className={`text-[15px] font-medium pb-1 border-b-2 transition-colors ${
+                className={`text-[15px] font-medium pb-1 border-b-2 transition-all duration-150 hover:-translate-y-0.5 inline-block ${
                   activeId === s.id
                     ? "text-blue border-blue"
                     : "text-navy dark:text-white border-transparent hover:text-blue"
@@ -75,7 +75,7 @@ export default function Nav({ activeId, theme, toggleTheme }) {
           <button
             onClick={toggleTheme}
             aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-            className="w-10 h-10 rounded-full border border-line flex items-center justify-center text-navy dark:text-white hover:border-blue hover:text-blue transition-colors"
+            className="w-10 h-10 rounded-full border border-line flex items-center justify-center text-navy dark:text-white hover:border-blue hover:text-blue hover-pop transition-colors"
           >
             {theme === "dark" ? <Moon size={18} /> : <Sun size={18} />}
           </button>

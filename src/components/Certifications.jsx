@@ -3,9 +3,9 @@ import { certifications } from "../data/profile";
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="scroll-mt-20 py-24">
-      <div className="max-w-4xl mx-auto px-6 md:px-10">
-        <h2 className="font-display font-extrabold text-4xl md:text-5xl text-center text-navy mb-16">
+    <section id="certifications" className="scroll-mt-20 py-14 md:py-16">
+      <div className="max-w-5xl mx-auto px-6 md:px-12">
+        <h2 className="font-display font-extrabold text-4xl md:text-5xl text-center text-navy mb-10">
           Certifications
         </h2>
 
@@ -13,7 +13,7 @@ export default function Certifications() {
           {certifications.map((cert) => (
             <div
               key={cert.name}
-              className="card-surface rounded-2xl p-6 shadow-sm flex items-start gap-4"
+              className="card-surface rounded-2xl p-6 shadow-sm flex items-start gap-4 hover-lift"
             >
               <span className="w-11 h-11 rounded-xl bg-chip text-blue flex items-center justify-center shrink-0">
                 <Award size={20} />

@@ -5,7 +5,7 @@ import { GithubIcon, LinkedinIcon } from "./icons";
 export default function Footer() {
   return (
     <footer id="contact" className="scroll-mt-20 border-t border-line py-14">
-      <div className="max-w-6xl mx-auto px-6 md:px-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex flex-col items-center text-center gap-5">
           <h3 className="font-display font-bold text-2xl text-navy">Let's talk</h3>
           <p className="text-slate max-w-md">
@@ -15,14 +15,14 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href={`mailto:${personal.email}`}
-              className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-full px-4 py-2 hover:border-blue hover:text-blue transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-full px-4 py-2 hover:border-blue hover:text-blue hover-pop transition-colors"
             >
               <Mail size={15} />
               {personal.email}
             </a>
             <a
               href={`tel:${personal.phone.replace(/[^\d+]/g, "")}`}
-              className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-full px-4 py-2 hover:border-blue hover:text-blue transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-full px-4 py-2 hover:border-blue hover:text-blue hover-pop transition-colors"
             >
               <Phone size={15} />
               {personal.phone}
@@ -31,7 +31,7 @@ export default function Footer() {
               href={personal.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-full px-4 py-2 hover:border-blue hover:text-blue transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-full px-4 py-2 hover:border-blue hover:text-blue hover-pop transition-colors"
             >
               <LinkedinIcon size={15} />
               LinkedIn
@@ -40,7 +40,7 @@ export default function Footer() {
               href={personal.github}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-full px-4 py-2 hover:border-blue hover:text-blue transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-full px-4 py-2 hover:border-blue hover:text-blue hover-pop transition-colors"
             >
               <GithubIcon size={15} />
               GitHub

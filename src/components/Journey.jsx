@@ -110,21 +110,21 @@ function JourneyCard({ item }) {
         {item.org}
       </p>
 
-      {item.description && (
-        <p className="text-sm mt-3 leading-relaxed text-slate group-hover:text-white/85 transition-colors duration-200">
-          {item.description}
-        </p>
-      )}
-
-      {item.coursework && (
-        <div className="mt-3">
-          <p className="text-sm font-semibold text-navy group-hover:text-white transition-colors duration-200">
-            Relevant Coursework:
-          </p>
-          <p className="text-sm mt-1 leading-relaxed text-slate group-hover:text-white/85 transition-colors duration-200">
-            {item.coursework.join(", ")}
-          </p>
-        </div>
+      {item.highlights && (
+        <ul className="mt-3 space-y-2">
+          {item.highlights.map((h) => (
+            <li
+              key={h}
+              className="flex gap-2.5 text-sm leading-relaxed text-slate group-hover:text-white/85 transition-colors duration-200"
+            >
+              <span
+                className="mt-2 w-1.5 h-1.5 rounded-full bg-blue group-hover:bg-white shrink-0 transition-colors duration-200"
+                aria-hidden="true"
+              />
+              {h}
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );

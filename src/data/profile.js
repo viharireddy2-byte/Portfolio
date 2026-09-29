@@ -17,7 +17,7 @@ export const personal = {
   github: "https://github.com/viharireddy2-byte",
   resumeFile: `${import.meta.env.BASE_URL}resume.pdf`,
   summary:
-    "I build data pipelines end to end: a PostgreSQL-to-Databricks ingestion framework with WAL-based CDC that loads 2M+ records across 4 tables, and a Kafka-Flink streaming analytics pipeline. I work in Python, SQL, and Spark on Databricks and AWS, and I bring prior professional experience in data analysis and reporting, where I led UAT for a 2M+ record warehouse migration. I'm seeking an entry-level Data Engineer role.",
+    "Recent M.S. IT graduate with hands-on experience in Python, SQL, PySpark, Databricks, and AWS. I've built a PostgreSQL-to-Databricks pipeline with full loads and CDC ingesting 2M+ records, a Kafka-Flink streaming pipeline with stateful anomaly detection, and an ETL platform with data-quality checks and a read-only LLM SQL interface. Brings prior expereince, as a Consultant, where i traced reporting discrepancies to their sources and built validation rules and dashboards",
 };
 
 export const heroSkillChips = [

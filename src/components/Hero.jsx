@@ -1,4 +1,4 @@
-import { personal, heroSkillChips } from "../data/profile";
+import { personal, heroSkillChips, heroStats } from "../data/profile";
 import { GithubIcon, LinkedinIcon } from "./icons";
 
 export default function Hero() {
@@ -22,6 +22,16 @@ export default function Hero() {
             <p className="mt-5 text-slate leading-relaxed max-w-xl">{personal.summary}</p>
 
             <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#projects"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="inline-flex items-center justify-center bg-blue border-2 border-blue text-white font-semibold px-6 py-3 rounded-xl hover:bg-blue-dark hover:border-blue-dark hover-pop transition-colors"
+              >
+                View Projects
+              </a>
               <a
                 href={personal.resumeFile}
                 download
@@ -72,6 +82,18 @@ export default function Hero() {
             </span>
           ))}
         </div>
+
+        <dl className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          {heroStats.map((stat) => (
+            <div key={stat.label} className="card-surface rounded-2xl p-5 text-center shadow-sm hover-lift">
+              <dt className="sr-only">{stat.label}</dt>
+              <dd>
+                <span className="block font-display font-extrabold text-3xl text-blue">{stat.value}</span>
+                <span className="block mt-1 text-xs font-medium text-slate leading-snug">{stat.label}</span>
+              </dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

@@ -23,7 +23,7 @@ export default function Certifications() {
                   {cert.name}
                 </h3>
                 <p className="text-sm text-slate group-hover:text-white/85 mt-1 transition-colors duration-200">
-                  {cert.issuer}
+                  {cert.issuer} · {cert.date}
                 </p>
               </div>
             </div>

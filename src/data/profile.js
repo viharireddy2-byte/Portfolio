@@ -1,15 +1,15 @@
-// Centralized content model — all real information from Vihari's resume.
-// Edit this file to update personal info, journey (work + education), skills, or certifications.
+// Centralized content model — sourced from Vihari's current resume (Data Engineer, 2026).
+// Edit this file to update personal info, stats, journey (work + education), skills, or certifications.
 // Projects live separately in ./projects.js so new project entries don't require touching UI components.
 
 export const personal = {
   name: "Vihari Reddy Aleti",
   firstName: "Vihari",
   lastName: "Reddy Aleti",
-  badge: "DATA ENGINEERING • ETL PIPELINES • CLOUD",
+  badge: "DATA ENGINEERING • LAKEHOUSE • STREAMING",
   role: "Data Engineer",
-  headline: "Data Engineer | ETL & Cloud Pipelines",
-  eduLine: "MS in Information Technology, Belhaven University (Graduating Apr 2026)",
+  headline: "Data Engineer | Python, SQL, Spark",
+  eduLine: "M.S. in Information Technology, Belhaven University (May 2026) · GPA 3.86/4.0",
   location: "Dallas, TX",
   relocation: "Open to relocation",
   email: "aleti.viharireddy@gmail.com",
@@ -17,44 +17,41 @@ export const personal = {
   github: "https://github.com/viharireddy2-byte",
   resumeFile: `${import.meta.env.BASE_URL}resume.pdf`,
   summary:
-    "I build metadata-driven ETL pipelines and CDC ingestion frameworks that turn raw, inconsistent data into reliable, analytics-ready tables. My work spans Python, SQL, and Apache Spark, alongside designing and deploying data warehouses, orchestration, and cloud infrastructure. Recently, I've worked on self-healing lakehouse platforms and WAL-based CDC sync frameworks built for production reliability. I'm actively seeking full-time roles in Data Engineering, Analytics Engineering, or Cloud Data Platforms.",
+    "I build data pipelines end to end: a PostgreSQL-to-Databricks ingestion framework with WAL-based CDC that loads 2M+ records across 4 tables, and a Kafka-Flink streaming analytics pipeline. I work in Python, SQL, and Spark on Databricks and AWS, and I bring prior professional experience in data analysis and reporting, where I led UAT for a 2M+ record warehouse migration. I'm seeking an entry-level Data Engineer role.",
 };
 
 export const heroSkillChips = [
   "Python",
   "SQL",
   "Apache Spark",
-  "Apache Airflow",
+  "Databricks",
+  "Kafka",
+  "Airflow",
   "dbt",
   "AWS",
   "Docker",
-  "LLM / RAG",
 ];
 
-// A single reverse-chronological timeline mixing work experience and education —
-// mirrors the reference site's "Journey" section. All entries render identically
-// (white card by default, blue on hover).
+// Headline numbers shown under the hero. Every figure comes directly from the resume.
+export const heroStats = [
+  { value: "2M+", label: "Records ingested across 4 tables (Lakeflow)" },
+  { value: "3", label: "End-to-end data engineering projects" },
+  { value: "400+", label: "Defects caught in pre-launch migration UAT" },
+  { value: "3.86", label: "GPA, M.S. Information Technology" },
+];
+
+// A single reverse-chronological timeline mixing work experience and education.
+// `highlights` renders as a bullet list inside each card.
 export const journey = [
   {
     id: "ms-it",
     type: "education",
     start: "Jan 2025",
     end: "May 2026",
-    duration: "In progress",
+    duration: "Graduated",
     title: "Master of Science in Information Technology",
-    org: "Belhaven University — Mississippi",
-    coursework: [
-      "Database Management Systems",
-      "Data Structures & Algorithms",
-      "Operating Systems",
-      "Computer Networks",
-      "Object-Oriented Programming",
-      "Software Engineering",
-      "Distributed Systems",
-      "Data Mining",
-      "Artificial Intelligence",
-      "Web Technologies",
-    ],
+    org: "Belhaven University — Jackson, MS",
+    highlights: ["GPA: 3.86 / 4.0"],
   },
   {
     id: "executive-consultant",
@@ -62,34 +59,40 @@ export const journey = [
     start: "Dec 2022",
     end: "Dec 2024",
     duration: "2 Years",
-    title: "Executive Consultant",
-    org: "IT World Web — Bangalore, India",
-    description:
-      "Analyzed 10K+ operational records across 5 business functions to map bottlenecks and improve efficiency by 40%. Standardized 10+ enterprise KPIs, improving reporting accuracy and strategic planning.",
+    title: "Executive Consultant, Business & Data",
+    org: "IT World Web — Bengaluru, India",
+    highlights: [
+      "Led UAT for the migration of 2M+ customer records to a cloud warehouse; caught 400+ defects pre-launch, with zero critical issues in the first 90 days post-cutover.",
+      "Investigated 230 reporting discrepancies in six months, traced 52% to inconsistent business definitions, and drove remediation that reduced repeat exceptions by 34%.",
+      "Cut Weekly Business Review preparation by 4 hours per week by building QuickSight dashboards for operational trend analysis.",
+    ],
   },
   {
     id: "associate-consultant",
     type: "work",
     start: "Apr 2021",
     end: "Nov 2022",
-    duration: "1.5 Years",
-    title: "Associate Consultant",
-    org: "Careernet Technologies — Bangalore, India",
-    description:
-      "Built executive dashboards consolidating operational metrics for faster performance tracking and leadership visibility. Investigated data discrepancies through root cause analysis to surface actionable insights.",
+    duration: "1 Yr 8 Mos",
+    title: "Associate Consultant, Business & Data",
+    org: "Careernet Technologies — Bengaluru, India",
+    highlights: [
+      "Reduced reporting defects by 35% and shortened analytics turnaround by one week per cycle by establishing source-to-report mappings and data validation rules.",
+      "Standardized calculation logic for 10+ enterprise KPIs by reconciling source data with performance reports, resolving conflicting metrics across stakeholder teams.",
+      "Reduced client-requested data corrections from 11 to 6 per month by implementing missing-entry and duplicate-entry checks across eight business workflows.",
+    ],
   },
   {
-    id: "be-cs",
+    id: "bs-ce",
     type: "education",
     start: "Aug 2016",
     end: "Sep 2020",
     duration: "4 Years",
-    title: "Bachelor of Engineering in Computer Science",
-    org: "JNTUH — Hyderabad, India",
+    title: "Bachelor of Science in Computer Engineering",
+    org: "Jawaharlal Nehru Technological University — Hyderabad, India",
   },
 ];
 
-// Technical Skills grid — grouped into named cards, each skill paired with a
+// Technical Skills grid — grouped to mirror the resume, each skill paired with a
 // small emoji glyph (kept to generic emoji rather than brand logo assets).
 export const skillCategories = [
   {
@@ -98,67 +101,78 @@ export const skillCategories = [
       { icon: "🐍", name: "Python" },
       { icon: "🗄️", name: "SQL" },
       { icon: "☕", name: "Java" },
-      { icon: "💻", name: "Bash" },
+      { icon: "🔺", name: "Scala" },
     ],
   },
   {
-    label: "Big Data & Libraries",
+    label: "Data Processing & Transformation",
     skills: [
       { icon: "⚡", name: "Apache Spark" },
       { icon: "🔥", name: "PySpark" },
-      { icon: "🐝", name: "Hive" },
-      { icon: "🐼", name: "Pandas" },
-      { icon: "🔢", name: "NumPy" },
-    ],
-  },
-  {
-    label: "Data Engineering",
-    skills: [
-      { icon: "🌬️", name: "Apache Airflow" },
+      { icon: "🧱", name: "Databricks" },
       { icon: "🔧", name: "dbt" },
-      { icon: "🔄", name: "ELT / ETL" },
-      { icon: "🧹", name: "Data Cleaning" },
+      { icon: "🐼", name: "Pandas" },
+      { icon: "🐻‍❄️", name: "Polars" },
     ],
   },
   {
-    label: "Databases & Warehousing",
+    label: "Streaming & Orchestration",
     skills: [
+      { icon: "📡", name: "Apache Kafka" },
+      { icon: "🌊", name: "Apache Flink" },
+      { icon: "🌬️", name: "Apache Airflow" },
+      { icon: "🔀", name: "Prefect" },
+    ],
+  },
+  {
+    label: "Data Platforms & Databases",
+    skills: [
+      { icon: "🧱", name: "Databricks" },
+      { icon: "🔺", name: "Delta Lake" },
+      { icon: "❄️", name: "Snowflake" },
       { icon: "🐘", name: "PostgreSQL" },
       { icon: "🐬", name: "MySQL" },
-      { icon: "🟥", name: "Amazon Redshift" },
-      { icon: "❄️", name: "Snowflake" },
+      { icon: "🦆", name: "DuckDB" },
     ],
   },
   {
     label: "Cloud & DevOps",
     skills: [
-      { icon: "☁️", name: "AWS (S3, EC2)" },
-      { icon: "🔷", name: "Azure" },
+      { icon: "☁️", name: "AWS (S3, EMR)" },
       { icon: "🐳", name: "Docker" },
       { icon: "☸️", name: "Kubernetes" },
+      { icon: "🌿", name: "Git" },
+      { icon: "🚀", name: "GitHub Actions" },
     ],
   },
   {
-    label: "Machine Learning & Gen AI",
+    label: "BI & Visualization",
+    skills: [
+      { icon: "📊", name: "Power BI" },
+      { icon: "📈", name: "QuickSight" },
+    ],
+  },
+  {
+    label: "Machine Learning & GenAI",
     skills: [
       { icon: "🤖", name: "Scikit-learn" },
-      { icon: "📈", name: "MLflow" },
-      { icon: "🗣️", name: "NLP" },
-      { icon: "✨", name: "LLM" },
-      { icon: "🔗", name: "LangChain" },
+      { icon: "✨", name: "LLMs" },
       { icon: "📚", name: "RAG" },
+      { icon: "💬", name: "Prompt Engineering" },
     ],
   },
 ];
 
 export const certifications = [
   {
-    name: "Data Engineering on AWS Foundations",
-    issuer: "AWS",
-  },
-  {
     name: "Analytical SQL for Developers",
     issuer: "Oracle",
+    date: "July 2026",
+  },
+  {
+    name: "Data Engineering on AWS Foundations",
+    issuer: "AWS",
+    date: "March 2026",
   },
 ];
 
@@ -168,4 +182,5 @@ export const sections = [
   { id: "projects", label: "Projects" },
   { id: "skills", label: "Skills" },
   { id: "certifications", label: "Certifications" },
+  { id: "contact", label: "Contact" },
 ];

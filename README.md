@@ -1,6 +1,6 @@
 # Vihari Reddy Aleti — Portfolio
 
-A production-quality personal portfolio for a Data Engineer, built with React, Vite, and Tailwind CSS. The design is built to closely match a reference portfolio's structure and visual language: a light/dark-mode toggle, a two-tone name treatment, a unified reverse-chronological "Journey" timeline (work + education combined), pipeline-style project preview cards, and a categorized Technical Skills grid.
+A production-quality personal portfolio for a Data Engineer, built with React, Vite, and Tailwind CSS. The design is built to closely match a reference portfolio's structure and visual language: a light/dark-mode toggle, a two-tone name treatment, a unified reverse-chronological "Journey" timeline (work + education combined), project cards with headline metrics, and a categorized Technical Skills grid.
 
 ## Tech stack
 
@@ -20,7 +20,7 @@ No framework beyond Vite+React is used — a portfolio like this has no server l
 │   └── resume.pdf         # downloadable resume
 ├── src/
 │   ├── data/
-│   │   ├── profile.js      # personal info, journey (work+education), skills, certifications
+│   │   ├── profile.js      # personal info, hero stats, journey (work+education), skills, certifications
 │   │   └── projects.js     # ← add new projects here
 │   ├── components/          # one component per section, reusable pieces
 │   ├── hooks/
@@ -41,26 +41,23 @@ Projects are **not** hard-coded into components. To add a project, open `src/dat
 ```js
 {
   id: "my-new-project",
-  number: "03",
-  category: "Data Engineering",   // must match an entry in projectCategories, or add one
+  number: "04",
+  category: "Batch & CDC",            // short label shown on the card
   title: "Project Title",
+  dates: "Jan 2026 – Present",
   githubUrl: "https://github.com/you/repo",
-  preview: {
-    eyebrow: "SHORT LABEL",
-    headline: "One punchy line about what it does.",
-    bullets: ["Point one", "Point two", "Point three"],
-    cta: "View on GitHub",
-  },
+  tagline: "One-line summary of what it does.",
+  metrics: [{ value: "2M+", label: "records" }],   // optional headline numbers
+  highlights: ["What you built", "Result you can back up"],
   technologies: ["Python", "Airflow", "Snowflake"],
-  objective: "A few sentences describing what you built and the impact.",
 }
 ```
 
-The Projects section renders this list automatically — no component changes needed. The same pattern applies to `src/data/profile.js` for updating your summary, journey entries, skill categories, or certifications.
+The Projects section renders this list automatically — no component changes needed. The same pattern applies to `src/data/profile.js` for updating your summary, hero stats, journey entries, skill categories, or certifications.
 
 ### Adding a new Journey entry
 
-`journey` in `src/data/profile.js` is a single reverse-chronological array mixing work and education — add an object with `start`, `end`, `duration`, `title`, `org`, and optional `description`. Set `origin: true` on the oldest entry to give it the solid highlight-card treatment (matches the reference site's earliest-milestone styling).
+`journey` in `src/data/profile.js` is a single reverse-chronological array mixing work and education — add an object with `id`, `type`, `start`, `end`, `duration`, `title`, `org`, and an optional `highlights` array (rendered as bullets).
 
 ## Local development
 
@@ -129,7 +126,7 @@ If you deploy to a **custom domain** or to `username.github.io` (a "user site" r
 
 ## Updating your resume
 
-Replace `public/resume.pdf` with a new export any time — the download links in the nav and Contact section always point to `/resume.pdf` and need no other changes.
+Replace `public/resume.pdf` with a new export any time — the download links in the hero and footer always point to `/resume.pdf` and need no other changes.
 
 ## Accessibility & performance notes
 

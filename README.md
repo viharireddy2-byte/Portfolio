@@ -22,6 +22,6 @@ npm run build
 
 GitHub Actions builds pushes to `main` and deploys `dist` to GitHub Pages. Vite's base path is configured in `vite.config.js`.
 
-## Details retained for owner verification
+## Contact details
 
-Dallas, TX, openness to relocation, the existing full display name, and the LinkedIn URL were retained from the original portfolio. The supplied resume text does not independently confirm these details. Contact email and resume downloads use the supplied current resumes.
+Dallas, TX and the LinkedIn URL were confirmed by the owner. Relocation preference is omitted. Contact email and resume downloads use the supplied current resumes.

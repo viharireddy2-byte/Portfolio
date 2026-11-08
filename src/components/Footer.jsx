@@ -44,7 +44,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-6 border-t border-line flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate">
           <span>© {new Date().getFullYear()} {personal.name}</span>
-          <span>{personal.location} · {personal.relocation}</span>
+          <span>{personal.location}</span>
         </div>
       </div>
     </footer>

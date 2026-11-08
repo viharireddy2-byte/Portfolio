@@ -3,9 +3,9 @@
 // Projects live separately in ./projects.js so new project entries don't require touching UI components.
 
 export const personal = {
-  name: "Vihari Reddy Aleti",
+  name: "Vihari Reddy",
   firstName: "Vihari",
-  lastName: "Reddy Aleti",
+  lastName: "Reddy",
   badge: "DATA ENGINEERING • ANALYSIS • BUSINESS INTELLIGENCE",
   role: "Data Engineer",
   headline: "Data Engineering, Analytics & Business Intelligence",
@@ -98,31 +98,31 @@ export const skillCategories = [
     "label": "Languages",
     "skills": [
       {
-        "icon": "\u00b7",
+        "icon": "🐍",
         "name": "Python"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🗄️",
         "name": "SQL"
       },
       {
-        "icon": "\u00b7",
+        "icon": "☕",
         "name": "Java"
       },
       {
-        "icon": "\u00b7",
+        "icon": "📐",
         "name": "R"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🔺",
         "name": "Scala"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🧮",
         "name": "DAX"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🔄",
         "name": "Power Query (M)"
       }
     ]
@@ -131,43 +131,43 @@ export const skillCategories = [
     "label": "Data Engineering",
     "skills": [
       {
-        "icon": "\u00b7",
+        "icon": "⚡",
         "name": "Apache Spark"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🔥",
         "name": "PySpark"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🔧",
         "name": "dbt"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🌬️",
         "name": "Airflow"
       },
       {
-        "icon": "\u00b7",
+        "icon": "📡",
         "name": "Kafka"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🌊",
         "name": "Flink"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🧱",
         "name": "Databricks"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🔺",
         "name": "Delta Lake"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🧊",
         "name": "Apache Iceberg"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🔀",
         "name": "Prefect"
       }
     ]
@@ -176,39 +176,39 @@ export const skillCategories = [
     "label": "Analysis & Modeling",
     "skills": [
       {
-        "icon": "\u00b7",
+        "icon": "🐼",
         "name": "Pandas"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🔢",
         "name": "NumPy"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🔎",
         "name": "Exploratory Analysis"
       },
       {
-        "icon": "\u00b7",
+        "icon": "📊",
         "name": "Statistical Analysis"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🧪",
         "name": "Hypothesis Testing"
       },
       {
-        "icon": "\u00b7",
+        "icon": "⚖️",
         "name": "A/B Testing"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🧩",
         "name": "Dimensional Modeling"
       },
       {
-        "icon": "\u00b7",
+        "icon": "⭐",
         "name": "Star Schema"
       },
       {
-        "icon": "\u00b7",
+        "icon": "✅",
         "name": "Data Validation"
       }
     ]
@@ -217,27 +217,27 @@ export const skillCategories = [
     "label": "BI & Visualization",
     "skills": [
       {
-        "icon": "\u00b7",
+        "icon": "📊",
         "name": "Power BI"
       },
       {
-        "icon": "\u00b7",
+        "icon": "📈",
         "name": "Tableau"
       },
       {
-        "icon": "\u00b7",
+        "icon": "👁️",
         "name": "Looker"
       },
       {
-        "icon": "\u00b7",
+        "icon": "📉",
         "name": "Looker Studio"
       },
       {
-        "icon": "\u00b7",
+        "icon": "📈",
         "name": "Amazon QuickSight"
       },
       {
-        "icon": "\u00b7",
+        "icon": "📗",
         "name": "Excel"
       }
     ]
@@ -246,43 +246,43 @@ export const skillCategories = [
     "label": "Databases & Cloud",
     "skills": [
       {
-        "icon": "\u00b7",
+        "icon": "🔍",
         "name": "BigQuery"
       },
       {
-        "icon": "\u00b7",
+        "icon": "❄️",
         "name": "Snowflake"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🔴",
         "name": "Redshift"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🐘",
         "name": "PostgreSQL"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🐬",
         "name": "MySQL"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🦆",
         "name": "DuckDB"
       },
       {
-        "icon": "\u00b7",
+        "icon": "☁️",
         "name": "AWS (S3, EMR)"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🏛️",
         "name": "Athena"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🧵",
         "name": "Microsoft Fabric"
       },
       {
-        "icon": "\u00b7",
+        "icon": "📨",
         "name": "Azure Event Hubs"
       }
     ]
@@ -291,35 +291,35 @@ export const skillCategories = [
     "label": "Delivery & Applied AI",
     "skills": [
       {
-        "icon": "\u00b7",
+        "icon": "🐳",
         "name": "Docker"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🌿",
         "name": "Git"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🚀",
         "name": "GitHub Actions"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🏗️",
         "name": "Terraform"
       },
       {
-        "icon": "\u00b7",
+        "icon": "🤖",
         "name": "Scikit-learn"
       },
       {
-        "icon": "\u00b7",
+        "icon": "✨",
         "name": "LLMs"
       },
       {
-        "icon": "\u00b7",
+        "icon": "📚",
         "name": "RAG"
       },
       {
-        "icon": "\u00b7",
+        "icon": "💬",
         "name": "Prompt Engineering"
       }
     ]

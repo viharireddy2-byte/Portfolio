@@ -17,7 +17,7 @@ export default function Projects() {
         <div className="flex flex-wrap justify-center gap-3 mt-8 mb-8" role="group" aria-label="Filter projects by discipline">
           {projectCategories.map(item => (
             <button key={item} type="button" aria-pressed={category === item} onClick={() => setCategory(item)} className={`rounded-full px-5 py-3 text-sm font-semibold border transition-colors ${category === item ? "bg-blue text-white border-blue" : "card-surface text-navy hover:border-blue"}`}>
-              {item} <span className="ml-1 opacity-75">({projects.filter(project => project.category === item).length})</span>
+              {item}
             </button>
           ))}
         </div>

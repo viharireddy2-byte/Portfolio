@@ -28,11 +28,11 @@ export default function Hero() {
                   e.preventDefault();
                   document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-flex items-center justify-center bg-blue border-2 border-blue text-white font-semibold px-6 py-3 rounded-xl hover:bg-blue-dark hover:border-blue-dark hover-pop transition-colors"
+                className="inline-flex items-center justify-center border-2 border-blue text-blue font-semibold px-6 py-3 rounded-xl hover:bg-blue hover:text-white hover-pop transition-colors"
               >
                 View Projects
               </a>
-              <a href={personal.resumeFile} download="resume.pdf" className="inline-flex items-center justify-center gap-2 border border-line text-blue font-semibold text-sm px-4 py-3 rounded-xl hover-swap">Resume</a>
+              <a href={personal.resumeFile} download="resume.pdf" className="inline-flex items-center justify-center gap-2 border-2 border-blue text-blue font-semibold px-6 py-3 rounded-xl hover:bg-blue hover:text-white hover-pop transition-colors">Resume</a>
               <a
                 href={personal.linkedin}
                 target="_blank"

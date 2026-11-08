@@ -8,9 +8,6 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex flex-col items-center text-center gap-5">
           <h3 className="font-display font-bold text-2xl text-navy">Let's talk</h3>
-          <p className="text-slate max-w-md">
-            Seeking an internship or entry-level Data Engineer role, with additional project work in Data Analysis and Business Intelligence. Get in touch to discuss my work.
-          </p>
 
           <div className="flex flex-wrap justify-center gap-4">
             <a
@@ -20,7 +17,7 @@ export default function Footer() {
               <Mail size={15} />
               {personal.email}
             </a>
-              <a href={personal.resumeFile} download="resume.pdf" className="inline-flex items-center justify-center gap-2 border border-line text-blue font-semibold text-sm px-4 py-3 rounded-xl hover-swap">Resume</a>
+              <a href={personal.resumeFile} download="resume.pdf" className="inline-flex items-center justify-center gap-2 border-2 border-blue text-blue font-semibold px-6 py-3 rounded-xl hover:bg-blue hover:text-white hover-pop transition-colors">Resume</a>
             <a
               href={personal.linkedin}
               target="_blank"

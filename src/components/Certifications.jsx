@@ -6,7 +6,7 @@ export default function Certifications() {
     <section id="certifications" className="scroll-mt-20 py-14 md:py-16">
       <div className="max-w-5xl mx-auto px-6 md:px-12">
         <h2 className="font-display font-extrabold text-4xl md:text-5xl text-center text-navy mb-10">
-          Certifications
+          Certifications & Training
         </h2>
 
         <div className="grid sm:grid-cols-2 gap-6">

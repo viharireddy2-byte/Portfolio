@@ -1,9 +1,12 @@
 import { ArrowUpRight } from "lucide-react";
-import { projects } from "../data/projects";
+import { useState } from "react";
+import { projects, projectCategories } from "../data/projects";
 import { personal } from "../data/profile";
 import ProjectCard from "./ProjectCard";
 
 export default function Projects() {
+  const [category, setCategory] = useState(projectCategories[0]);
+  const visibleProjects = projects.filter(project => project.category === category);
   return (
     <section id="projects" className="scroll-mt-20 py-14 md:py-16">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -11,11 +14,19 @@ export default function Projects() {
           Projects
         </h2>
         <p className="text-center text-slate max-w-2xl mx-auto mb-10">
-          Three end-to-end pipelines covering batch and CDC ingestion, data-quality automation, and real-time streaming.
+          Explore projects by focus: reliable pipelines, analytical models, and decision-ready dashboards.
         </p>
 
+        <div className="flex flex-wrap justify-center gap-3 mb-5" role="group" aria-label="Filter projects by discipline">
+          {projectCategories.map(item => (
+            <button key={item} type="button" aria-pressed={category === item} onClick={() => setCategory(item)} className={`rounded-full px-5 py-3 text-sm font-semibold border transition-colors ${category === item ? "bg-blue text-white border-blue" : "card-surface text-navy hover:border-blue"}`}>
+              {item} <span className="ml-1 opacity-75">({projects.filter(project => project.category === item).length})</span>
+            </button>
+          ))}
+        </div>
+        <p className="text-center text-sm text-slate mb-8" role="status" aria-live="polite">Showing {visibleProjects.length} {category} projects</p>
         <div className="grid lg:grid-cols-2 gap-8">
-          {projects.map((project) => (
+          {visibleProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>

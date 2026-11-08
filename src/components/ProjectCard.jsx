@@ -4,13 +4,12 @@ import { GithubIcon } from "./icons";
 export default function ProjectCard({ project }) {
   return (
     <article className="rounded-2xl overflow-hidden card-surface shadow-sm flex flex-col hover-lift p-6">
-      <div className="flex items-center justify-between gap-4 mb-4">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="font-display font-extrabold text-blue text-sm">{project.number}</span>
           <span className="text-[11px] font-semibold uppercase tracking-wide bg-chip text-blue px-2.5 py-1 rounded-md">
             {project.category}
           </span>
-          {project.dates && <span className="text-xs text-slate">{project.dates}</span>}
         </div>
 
         {project.githubUrl && (

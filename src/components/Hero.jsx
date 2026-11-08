@@ -1,4 +1,4 @@
-import { personal, heroSkillChips, heroStats } from "../data/profile";
+import { resumes, personal, heroSkillChips, heroStats } from "../data/profile";
 import { GithubIcon, LinkedinIcon } from "./icons";
 
 export default function Hero() {
@@ -32,13 +32,7 @@ export default function Hero() {
               >
                 View Projects
               </a>
-              <a
-                href={personal.resumeFile}
-                download
-                className="inline-flex items-center justify-center border-2 border-blue text-blue font-semibold px-6 py-3 rounded-xl hover:bg-blue hover:text-white hover-pop transition-colors"
-              >
-                Download Resume
-              </a>
+              {resumes.map(resume => <a key={resume.label} href={resume.file} download className="inline-flex items-center justify-center gap-2 border border-line text-blue font-semibold text-sm px-4 py-3 rounded-xl hover-swap">{resume.label} Resume</a>)}
               <a
                 href={personal.linkedin}
                 target="_blank"

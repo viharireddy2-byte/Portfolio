@@ -39,7 +39,7 @@ export default function Journey() {
     <section id="journey" className="scroll-mt-20 py-14 md:py-16">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <h2 className="font-display font-extrabold text-4xl md:text-5xl text-center text-navy mb-10">
-          My Tech Journey
+          Experience & Education
         </h2>
 
         <div className="relative">

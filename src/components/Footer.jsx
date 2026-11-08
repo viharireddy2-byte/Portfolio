@@ -1,5 +1,5 @@
-import { Download, Mail } from "lucide-react";
-import { personal } from "../data/profile";
+import { Mail } from "lucide-react";
+import { personal, resumes } from "../data/profile";
 import { GithubIcon, LinkedinIcon } from "./icons";
 
 export default function Footer() {
@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="flex flex-col items-center text-center gap-5">
           <h3 className="font-display font-bold text-2xl text-navy">Let's talk</h3>
           <p className="text-slate max-w-md">
-            Seeking an entry-level Data Engineer role. Email is the fastest way to reach me, and I'm happy to walk through any project.
+            Seeking an internship or entry-level Data Engineer role, with additional project work in Data Analysis and Business Intelligence. Get in touch to discuss my work.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -20,14 +20,7 @@ export default function Footer() {
               <Mail size={15} />
               {personal.email}
             </a>
-            <a
-              href={personal.resumeFile}
-              download
-              className="inline-flex items-center gap-2 text-sm font-medium text-navy border border-line rounded-full px-4 py-2 hover-swap transition-colors"
-            >
-              <Download size={15} />
-              Resume
-            </a>
+              {resumes.map(resume => <a key={resume.label} href={resume.file} download className="inline-flex items-center justify-center gap-2 border border-line text-blue font-semibold text-sm px-4 py-3 rounded-xl hover-swap">{resume.label} Resume</a>)}
             <a
               href={personal.linkedin}
               target="_blank"

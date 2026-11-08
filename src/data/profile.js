@@ -32,12 +32,6 @@ export const heroSkillChips = [
 ];
 
 // Headline numbers shown under the hero. Every figure comes directly from the resume.
-export const resumes = [
-  { label: "Data Engineering", file: `${import.meta.env.BASE_URL}resume.pdf` },
-  { label: "Data Analysis", file: `${import.meta.env.BASE_URL}resume-data-analyst.pdf` },
-  { label: "Business Intelligence", file: `${import.meta.env.BASE_URL}resume-business-intelligence.pdf` },
-];
-
 export const heroStats = [
   { value: "50M", label: "Events processed in 25 minutes · AWS project" },
   { value: "12.6M", label: "Events processed in 30 minutes · streaming project" },

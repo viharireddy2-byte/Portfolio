@@ -13,18 +13,14 @@ export default function Projects() {
         <h2 className="font-display font-extrabold text-4xl md:text-5xl text-center text-navy mb-4">
           Projects
         </h2>
-        <p className="text-center text-slate max-w-2xl mx-auto mb-10">
-          Explore projects by focus: reliable pipelines, analytical models, and decision-ready dashboards.
-        </p>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-5" role="group" aria-label="Filter projects by discipline">
+        <div className="flex flex-wrap justify-center gap-3 mt-8 mb-8" role="group" aria-label="Filter projects by discipline">
           {projectCategories.map(item => (
             <button key={item} type="button" aria-pressed={category === item} onClick={() => setCategory(item)} className={`rounded-full px-5 py-3 text-sm font-semibold border transition-colors ${category === item ? "bg-blue text-white border-blue" : "card-surface text-navy hover:border-blue"}`}>
               {item} <span className="ml-1 opacity-75">({projects.filter(project => project.category === item).length})</span>
             </button>
           ))}
         </div>
-        <p className="text-center text-sm text-slate mb-8" role="status" aria-live="polite">Showing {visibleProjects.length} {category} projects</p>
         <div className="grid lg:grid-cols-2 gap-8">
           {visibleProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />

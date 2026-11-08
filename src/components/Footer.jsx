@@ -1,5 +1,5 @@
 import { Mail } from "lucide-react";
-import { personal, resumes } from "../data/profile";
+import { personal } from "../data/profile";
 import { GithubIcon, LinkedinIcon } from "./icons";
 
 export default function Footer() {
@@ -20,7 +20,7 @@ export default function Footer() {
               <Mail size={15} />
               {personal.email}
             </a>
-              {resumes.map(resume => <a key={resume.label} href={resume.file} download className="inline-flex items-center justify-center gap-2 border border-line text-blue font-semibold text-sm px-4 py-3 rounded-xl hover-swap">{resume.label} Resume</a>)}
+              <a href={personal.resumeFile} download="resume.pdf" className="inline-flex items-center justify-center gap-2 border border-line text-blue font-semibold text-sm px-4 py-3 rounded-xl hover-swap">Resume</a>
             <a
               href={personal.linkedin}
               target="_blank"

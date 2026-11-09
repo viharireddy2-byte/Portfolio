@@ -15,7 +15,7 @@ export const personal = {
   linkedin: "https://www.linkedin.com/in/vihari-reddy-389b38449/",
   github: "https://github.com/viharireddy2-byte",
   resumeFile: `${import.meta.env.BASE_URL}resume.pdf`,
-  summary: "I build data pipelines, analytics models, and dashboards with checks that make their results easier to trust. My projects span a 50M-event AWS lakehouse, product and purchase analytics, and BigQuery–Looker reporting. My professional background in business and data consulting includes KPI validation, migration UAT, and resolving reporting discrepancies.",
+  summary: "I build data pipelines, analytics models, and dashboards with checks that make their results easier to trust. My projects span a 50M-event AWS lakehouse, product and purchase analytics, and BigQuery–Looker reporting.",
 
 };
 

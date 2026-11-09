@@ -54,7 +54,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-sm">
+          <div className="relative mx-auto w-full max-w-[18rem]">
             <div className="absolute -inset-3 rounded-[2rem] bg-blue/10 rotate-3" aria-hidden="true" />
             <div className="relative rounded-[2rem] overflow-hidden card-surface shadow-xl -rotate-1 transition-all duration-200 hover:shadow-2xl hover:ring-4 hover:ring-blue/30">
               <img
